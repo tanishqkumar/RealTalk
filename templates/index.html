@@ -1,0 +1,27 @@
+{% extends "layout.html"%}
+{% block main %}
+
+<form action="/" method="post">
+  <div class="form-group">
+    <h2 text-align="center">Create a new channel!</h2>
+    <input type="text" class="form-control" name="channelName">
+    <small>Or join an existing one using the link at the top.</small>
+  </div>
+  <button type="submit" class="btn btn-primary">Create</button>
+</form>
+
+{% endblock %}
+
+{% block script %}
+
+<script>
+
+if (localStorage.getItem('currentChannel')) {
+  // Redirect to that channel
+  let channel = localStorage.getItem('currentChannel');
+  window.location.replace('http://0.0.0.0:5000/channel/' + channel);
+};
+
+</script>
+
+{% endblock %}

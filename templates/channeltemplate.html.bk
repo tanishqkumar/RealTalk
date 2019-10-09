@@ -1,0 +1,42 @@
+<!-- This is the page that will be automatically generated for each new channel created, containing all the content via Jinja2-->
+
+
+<!--this page is to contain the message interface-->
+
+{% extends "layout.html"%}
+{% block main %}
+<!--this contains the js that enables socketIO functionality-->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script src="index.js"></script>
+
+<main>
+<div class="container">
+</div>
+  <!--at this point we have a line then the submissions container below this--><hr>
+  <div class="alert alert-dark" role="alert" align="center">
+  <strong><h3> {{ channelName }} </h3></strong>
+  </div>
+  <div class="row container justify-content-center" action>
+
+      <div class="form-group" name="chatbox">
+        <ul id="ListOfMessages">
+        </ul>
+
+
+    <input type="text" class="form-control" name="messageInput" id="messageInput" placeholder="What's on your mind?">
+    <button type="submit" class="btn btn-primary" id="submitMessage">Submit</button>
+
+
+    </div>
+
+
+<!--this div below will contain all the reviews by looping over the db-->
+  <div class="container-fluid list-group">
+
+  </div>
+
+
+</div>
+</main>
+
+{% endblock %}

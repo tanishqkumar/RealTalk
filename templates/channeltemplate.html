@@ -1,0 +1,37 @@
+{% extends "layout.html"%}
+{% block main %}
+<!--this contains the js that enables socketIO functionality-->
+<script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/1.3.6/socket.io.min.js"></script>
+<script type="text/javascript" src="/static/index.js"></script>
+<style src="/static/chat.css"></style>
+
+
+<div class="container">
+</div>
+ <!--at this point we have a line then the submissions container below this--><hr>
+ <div class="alert alert-dark" role="alert" align="center">
+ <strong><h3><span id="span"> {{ channelName }} </span></h3></strong>
+ </div>
+ <div class="row container justify-content-center" action>
+
+   <div class="form-group" name="chatbox">
+
+    <textarea class="form-control" id="ListOfMessages" cols="90" rows="10" readonly style="margin-bottom: 20px;">
+    {% if messages %}
+      {% for message in messages %}
+          {{ message['author'] }} at {{ message['timestamp'] }}: {{ message['message'] }}
+        {% endfor %}
+    {% endif %}
+    </textarea>
+
+
+  <input type="text" class="form-control" name="messageInput" id="messageInput" placeholder="What's on your mind?" style="margin-bottom: 20px;">
+  <button type="submit" class="btn btn-primary" id="submitMessage">Submit</button>
+  <button class="btn btn-primary" id="leaveChannel">Leave Channel</button>
+
+
+  </div>
+</div>
+
+
+{% endblock %}
